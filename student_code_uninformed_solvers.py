@@ -108,8 +108,9 @@ class SolverBFS(UninformedSolver):
 
         for c in currstate.children:
             
-            if not self.visited[c] and c not in self.states:
-                self.states.append(c)
+            if not self.visited[c]:
+                if c not in self.states:
+                    self.states.append(c)
 
         nextstate = self.states.popleft()
         path = deque()
